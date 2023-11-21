@@ -7,17 +7,16 @@ const AccordionContext = createContext();
 const Accordion = ({ children, defaultIndex = 0 }) => {
   const [activeIndex, setActiveIndex] = useState(defaultIndex);
 
+  const style = {
+    wrap: {
+      border: '1px solid #ccc',
+      borderRadius: '4px',
+    },
+  };
+
   return (
     <AccordionContext.Provider value={{ activeIndex, setActiveIndex }}>
-      <div
-        style={{
-          border: '1px solid #ccc',
-          borderRadius: '4px',
-          overflow: 'hidden',
-        }}
-      >
-        {children}
-      </div>
+      <div style={style.wrap}>{children}</div>
     </AccordionContext.Provider>
   );
 };
@@ -25,27 +24,28 @@ const Accordion = ({ children, defaultIndex = 0 }) => {
 const AccordionSection = ({ index, title, children }) => {
   const { activeIndex, setActiveIndex } = useContext(AccordionContext);
 
-  const handleClick = () => {
-    setActiveIndex(index);
+  const style = {
+    section: {
+      borderBottom: '1px solid #ccc',
+      cursor: 'pointer',
+      padding: '8px',
+      backgroundColor: index === activeIndex ? '#f0f0f0' : 'white',
+    },
+    title: {
+      fontWeight: 'bold',
+    },
+    info: {
+      padding: '8px',
+      borderTop: '1px solid #ccc',
+    },
   };
 
+  const handleClick = () => setActiveIndex(index);
+
   return (
-    <div
-      style={{
-        borderBottom: '1px solid #ccc',
-        cursor: 'pointer',
-        padding: '8px',
-        backgroundColor: index === activeIndex ? '#f0f0f0' : 'white',
-      }}
-    >
-      <div style={{ fontWeight: 'bold' }} onClick={handleClick}>
-        {title}
-      </div>
-      {index === activeIndex && (
-        <div style={{ padding: '8px', borderTop: '1px solid #ccc' }}>
-          {children}
-        </div>
-      )}
+    <div style={style.section} onClick={handleClick}>
+      <div style={style.title}>{title}</div>
+      {index === activeIndex && <div style={style.info}>{children}</div>}
     </div>
   );
 };

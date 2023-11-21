@@ -1,18 +1,21 @@
 /* eslint-disable no-unused-vars */
 import Flyout from './Flyout';
 import Accordion from './Accordion ';
+import List from './List';
+
+const style = {
+  wrap: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+  },
+};
 
 function App() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
-      }}
-    >
+    <div style={style.wrap}>
       {/* <Flyout>
         <Flyout.Toggle />
         <Flyout.List>
@@ -20,7 +23,9 @@ function App() {
           <Flyout.Item>Delete</Flyout.Item>
         </Flyout.List>
       </Flyout> */}
-      <Accordion defaultIndex={0}>
+
+      {/* Accordion */}
+      {/* <Accordion defaultIndex={0}>
         <Accordion.Section index={0} title='Section 1'>
           Content for Section 1
         </Accordion.Section>
@@ -30,7 +35,18 @@ function App() {
         <Accordion.Section index={2} title='Section 3'>
           Content for Section 3
         </Accordion.Section>
-      </Accordion>
+      </Accordion> */}
+
+      {/* List */}
+      <List>
+        <List.Info>Info</List.Info>
+        <List.Setting />
+        <List.Items>
+          <List.Item type='EDIT' />
+          <List.Item type='DELETE' />
+          <List.Item type='COPY' />
+        </List.Items>
+      </List>
     </div>
   );
 }

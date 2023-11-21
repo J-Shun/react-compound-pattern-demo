@@ -43,10 +43,13 @@ const Items = ({ children }) => {
       position: 'absolute',
       right: '0',
       top: '100%',
+      backgroundColor: '#fff',
       border: '1px solid #ccc',
       borderRadius: '4px',
-      padding: '8px',
+      padding: '0',
       margin: '0',
+      textAlign: 'center',
+      zIndex: '100',
     },
   };
   const { isOpen } = useContext(ListContext);
@@ -59,6 +62,7 @@ const Item = ({ type }) => {
     item: {
       cursor: 'pointer',
       listStyle: 'none',
+      padding: '8px',
     },
   };
 

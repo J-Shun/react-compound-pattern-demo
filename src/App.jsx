@@ -45,6 +45,29 @@ function App() {
           <List.Item type='EDIT' />
           <List.Item type='DELETE' />
           <List.Item type='COPY' />
+          <List.Item type='GOGOGO' />
+          <List.Item type='HEY' />
+        </List.Items>
+      </List>
+
+      <br />
+
+      <List>
+        <List.Info>Info</List.Info>
+        <List.Setting />
+        <List.Items>
+          <List.Item type='EDIT' />
+          <List.Item type='DELETE' />
+        </List.Items>
+      </List>
+
+      <br />
+
+      <List>
+        <List.Info>Info</List.Info>
+        <List.Setting />
+        <List.Items>
+          <List.Item type='DELETE' />
         </List.Items>
       </List>
     </div>

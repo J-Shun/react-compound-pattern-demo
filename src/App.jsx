@@ -1,13 +1,60 @@
 /* eslint-disable no-unused-vars */
 import Accordion from './Accordion ';
 import Item from './Card';
-// import
+import ImageSlider from './ImageSlider';
+import pixel1 from './assets/helicopter.png';
+import pixel2 from './assets/road.png';
+import pixel3 from './assets/deer.png';
+
+const data = [
+  {
+    id: 1,
+    img: pixel1,
+    title: 'helicopter',
+  },
+  {
+    id: 2,
+    img: pixel2,
+    title: 'road to mountain',
+  },
+  {
+    id: 3,
+    img: pixel3,
+    title: 'deer',
+  },
+];
 
 function App() {
   return (
     <div className='wrap'>
+      {/* Item */}
+      <Item>
+        <Item.Info>Item 1</Item.Info>
+        <Item.Setting />
+        <Item.Features>
+          <Item.Feature type='EDIT' />
+          <Item.Feature type='DELETE' />
+        </Item.Features>
+      </Item>
+
+      <br />
+
+      <Item>
+        <Item.Info>Item 1</Item.Info>
+        <Item.Setting />
+        <Item.Features>
+          <Item.Feature type='EDIT' />
+          <Item.Feature type='DELETE' />
+          <Item.Feature type='COPY' />
+          <Item.Feature type='TRANSFER' />
+          <Item.Feature type='DOWNLOAD' />
+        </Item.Features>
+      </Item>
+
+      <br />
+
       {/* Accordion */}
-      <Accordion>
+      {/* <Accordion>
         <Accordion.Section index={0} title='Section 1'>
           Content for Section 1
         </Accordion.Section>
@@ -48,33 +95,17 @@ function App() {
           </p>
           <p>2. 透過 Context 使組件間共享狀態，保持彼此作用</p>
         </Accordion.Section>
-      </Accordion>
+      </Accordion> */}
 
-      <br />
-
-      {/* Item */}
-      <Item>
-        <Item.Info>Item 1</Item.Info>
-        <Item.Setting />
-        <Item.Features>
-          <Item.Feature type='EDIT' />
-          <Item.Feature type='DELETE' />
-        </Item.Features>
-      </Item>
-
-      <br />
-
-      <Item>
-        <Item.Info>Item 1</Item.Info>
-        <Item.Setting />
-        <Item.Features>
-          <Item.Feature type='EDIT' />
-          <Item.Feature type='DELETE' />
-          <Item.Feature type='COPY' />
-          <Item.Feature type='TRANSFER' />
-          <Item.Feature type='DOWNLOAD' />
-        </Item.Features>
-      </Item>
+      {/* ImageSlider */}
+      {/* <ImageSlider>
+        {data.map((item, index) => (
+          <ImageSlider.ImageBox key={item.id} index={index}>
+            <ImageSlider.ImageTitle>{item.title}</ImageSlider.ImageTitle>
+            <ImageSlider.Image src={item.img} />
+          </ImageSlider.ImageBox>
+        ))}
+      </ImageSlider> */}
     </div>
   );
 }

@@ -25,15 +25,21 @@ const AccordionSection = ({ index, title, children }) => {
 
   return (
     <div
-      className='accordion-section'
+      className={`accordion-section ${
+        index === activeIndex ? 'accordion-section-active' : ''
+      }`}
       onClick={() => {
         handleClick(index);
       }}
     >
       <div className='accordion-title'>{title}</div>
-      {index === activeIndex && (
-        <div className='accordion-info'>{children}</div>
-      )}
+      <div
+        className={`accordion-info ${
+          index === activeIndex ? 'accordion-info-open' : 'accordion-info-close'
+        }`}
+      >
+        {children}
+      </div>
     </div>
   );
 };

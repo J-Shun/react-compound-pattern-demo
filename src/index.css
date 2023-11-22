@@ -53,6 +53,10 @@
   background-color: #f0f0f0;
 }
 
+.accordion-section:hover {
+  background-color: #e0e0e0;
+}
+
 .accordion-title {
   padding: 8px;
   font-size: 18px;
@@ -60,9 +64,20 @@
 }
 
 .accordion-info {
-  padding: 8px;
+  padding: 0 8px;
   border-top: 1px solid #ccc;
   background-color: #fff;
+  transition: all 0.3s linear;
+  overflow: hidden;
+}
+
+.accordion-info-open {
+  padding: 8px;
+  max-height: 200px;
+}
+
+.accordion-info-close {
+  max-height: 0;
 }
 
 .point {
